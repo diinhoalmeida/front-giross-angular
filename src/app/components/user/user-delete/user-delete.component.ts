@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from './../product.service';
-import { User } from './../product.module';
+import { UserService } from '../user.service';
+import { User } from '../user.module';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -35,12 +35,12 @@ export class UserDeleteComponent implements OnInit {
   deleteUser(): void {
     this.userService.delete(this.user).subscribe(() => {
       this.userService.showMessage('Usuário Deletado com sucesso');
-      this.router.navigate(['/products']);
+      this.router.navigate(['/user']);
     })
   }
 
   cancelDeleteuser(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/user']);
   }
 
 }
