@@ -1,14 +1,14 @@
-import { User } from './../product.module';
+import { User } from '../user.module';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from './../product.service';
+import { UserService } from '../user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-product-update',
-  templateUrl: './product-update.component.html',
-  styleUrls: ['./product-update.component.css']
+  selector: 'app-user-update',
+  templateUrl: './user-update.component.html',
+  styleUrls: ['./user-update.component.css']
 })
-export class ProductUpdateComponent implements OnInit {
+export class UserUpdateComponent implements OnInit {
 
   user: User = {
     id: undefined,
@@ -35,12 +35,12 @@ export class ProductUpdateComponent implements OnInit {
   updateUser(): void {
     this.userService.update(this.user).subscribe(() => {
       this.userService.showMessage('Usuário Atualizado com sucesso');
-      this.router.navigate(['/products']);
+      this.router.navigate(['/user']);
     })
   }
 
   cancelUpdateUser(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/user']);
   }
 
 }

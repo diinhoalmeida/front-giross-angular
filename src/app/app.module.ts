@@ -1,5 +1,5 @@
-import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
-import { ProductReadComponent } from './components/product/product-read/product-read.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
+import { UserReadComponent } from './components/user/user-read/user-read.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,20 +16,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { MatCardModule } from '@angular/material/card';
-import { ProductCrudComponent } from './views/product/product-crud/product-crud.component';
+import { UserCrudComponent } from './views/user/user-crud/user-crud.component';
 import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
-import { UserCreateComponent } from './components/product/product-create/product-create.component'
+import { UserCreateComponent } from './components/user/user-create/user-create.component'
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms'
-import {MatFormFieldModule} from '@angular/material/form-field'
-import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort'
-import { UserDeleteComponent } from './components/product/user-delete/user-delete.component';
+import { UserDeleteComponent } from './components/user/user-delete/user-delete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,12 +37,12 @@ import { UserDeleteComponent } from './components/product/user-delete/user-delet
     FooterComponent,
     NavComponent,
     HomeComponent,
-    ProductCrudComponent,
+    UserCrudComponent,
     RedDirective,
     ForDirective,
     UserCreateComponent,
-    ProductReadComponent,
-    ProductUpdateComponent,
+    UserReadComponent,
+    UserUpdateComponent,
     UserDeleteComponent,
   ],
   imports: [
