@@ -1,4 +1,4 @@
-import { User } from '../user.module';
+import { User } from '../user-interface'
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Component, OnInit } from '@angular/core';
