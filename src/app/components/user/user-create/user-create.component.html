@@ -4,27 +4,32 @@
     </mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Nome" 
+            <input matInput placeholder="Nome" required 
             [(ngModel)]="user.nome" name="nome">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Email"
+            <input matInput placeholder="Email" required
             [(ngModel)]="user.email" name="email">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Telefone"
+            <input matInput placeholder="Telefone" required
             [(ngModel)]="user.telefone" name="telefone">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Idade"
+            <input matInput placeholder="Idade" required
             [(ngModel)]="user.idade" name="idade">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Sexo"
-            [(ngModel)]="user.sexo" name="sexo">
+            <input matInput placeholder="Qual seu Gênero?" [(ngModel)]="user.gen" name="gen" list="gen" required/>
+            <datalist id="gen">
+                <option>Masculino </option>
+                <option>Feminino</option>
+                <option>Prefiro não dizer</option>
+                <option>Outro (Escreva aqui)</option>
+            </datalist>
         </mat-form-field>
     </form>
-    <button mat-raised-button (click)="createUser()" color="primary">
+    <button type="submit" mat-raised-button (click)="createUser()" color="primary">
         Salvar
     </button>
     

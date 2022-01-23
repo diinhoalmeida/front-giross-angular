@@ -10,7 +10,7 @@ import { User } from '../user-interface'
 export class UserReadComponent implements OnInit {
 
   users: any;
-  displayedColumns = ['id', 'nome', 'email', 'telefone', 'sexo', 'idade', 'action']
+  displayedColumns = ['id', 'nome', 'email', 'telefone', 'gen', 'idade', 'action']
 
   constructor(private userService: UserService) { }
 

@@ -16,7 +16,7 @@ export class UserDeleteComponent implements OnInit {
     email: '',
     telefone: '',
     idade: undefined,
-    sexo: ''
+    gen: ''
   }
 
   constructor(

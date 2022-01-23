@@ -16,7 +16,7 @@ export class UserCreateComponent implements OnInit {
     email: '',
     telefone: '',
     idade: undefined,
-    sexo: ''
+    gen: '',
   }
 
   constructor(private userService: UserService, 
