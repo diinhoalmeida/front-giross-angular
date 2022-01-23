@@ -1,6 +1,6 @@
 import { UserService } from '../user.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user.module';
+import { User } from '../user-interface'
 
 @Component({
   selector: 'app-user-read',
@@ -10,7 +10,7 @@ import { User } from '../user.module';
 export class UserReadComponent implements OnInit {
 
   users: any;
-  displayedColumns = ['id', 'nome', 'email', 'telefone', 'sexo', 'idade', 'action']
+  displayedColumns = ['id', 'nome', 'email', 'telefone', 'gen', 'idade', 'action']
 
   constructor(private userService: UserService) { }
 

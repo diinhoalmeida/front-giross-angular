@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
-import { User } from '../user.module';
+import { User } from '../user-interface'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,7 +16,7 @@ export class UserDeleteComponent implements OnInit {
     email: '',
     telefone: '',
     idade: undefined,
-    sexo: ''
+    gen: ''
   }
 
   constructor(

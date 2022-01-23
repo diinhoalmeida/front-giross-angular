@@ -20,8 +20,13 @@
             [(ngModel)]="user.idade" name="idade">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Sexo"
-            [(ngModel)]="user.sexo" name="sexo">
+            <input matInput placeholder="Qual seu Gênero?" [(ngModel)]="user.gen" name="gen" list="gen" />
+            <datalist id="gen">
+                <option>Masculino </option>
+                <option>Feminino</option>
+                <option>Prefiro não dizer</option>
+                <option>Outro (Escreva aqui)</option>
+            </datalist>
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="updateUser()" color="primary">

@@ -1,7 +1,7 @@
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../user.module';
+import { User } from '../user-interface';
 
 @Component({
   selector: 'app-user-create',
@@ -16,7 +16,7 @@ export class UserCreateComponent implements OnInit {
     email: '',
     telefone: '',
     idade: undefined,
-    sexo: ''
+    gen: '',
   }
 
   constructor(private userService: UserService, 
