@@ -32,6 +32,12 @@ export class UserCreateComponent implements OnInit {
         this.userService.showMessage(result.errorMessage); 
         return     
       }
+
+      if (result.errorBlank) {
+        this.userService.showMessage(result.errorBlank); 
+        return
+      }
+
       this.userService.showMessage(result.message);
       this.router.navigate(['/user'])
     });
