@@ -36,12 +36,12 @@ export class UserCreateComponent implements OnInit {
       this.userService.showMessage(response.message);
       this.router.navigate(['/user'])
     } catch (error: any) {
+      console.log(error.error.message);
       this.userService.showMessage(error.error.message);
     }
   }
 
   cancelCreateUser(): void {
-    this.userService.showMessage('Operação cancelada.');
     this.router.navigate(['/user'])
   }
 

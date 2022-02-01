@@ -10,15 +10,28 @@ import { User } from './user-interface'
 export class UserService {
 
   baseUrl = "http://localhost:4000/users"
+  timeOut = 1000;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
-  showMessage(msg: string): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    })
+  showMessage(msg: Array<string>): void {
+    if ( msg instanceof Array) {
+      msg.forEach((msgFinal, index) => {
+        setTimeout(() => {
+          this.snackBar.open(msgFinal, 'X', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          })     
+        }, index * (this.timeOut+500))
+      })
+    } else {
+      this.snackBar.open(msg, 'X', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top'
+      })      
+    }
   } 
 
   create(user: User): any {
