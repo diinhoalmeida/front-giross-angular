@@ -1,8 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-weight: 500;
+    color: white;
+    margin: 0;
+}
+
 form {
     display: flex;
     flex-direction: column;
 }
 
+.container {
+    background-color: #424242;
+    padding: 5px;   
+    border-radius: 4px;
+    padding: 10px;
+}
+
+label {
+    color: rgba(255,255,255,.7);
+    font-size: 12px;
+}
+
 button {
-    margin: 20px 20px 0 0;
+    color: white;
+}
+
+.btn-footer {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.btn-footer-save {
+    all: unset;
+    background-color: #7b1fa2;
+    margin-right: 20px;
+    width: 70px;
+    border-radius: 5px;
+    text-align: center;
+    height: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-footer-save:hover {
+    background-color: #8740a5;        
+}
+
+.btn-footer-cancel {
+    all: unset;
+    background-color: rgb(227, 94, 107);
+    width: 80px;
+    border-radius: 5px;
+    text-align: center;
+    height: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-footer-cancel:hover {
+    background-color: rgb(211, 70, 84);        
+}
+
+input {
+    all: unset;
+    border-bottom: 1px solid gray;
+    color: white;
+}
+
+input:focus {
+    border-bottom: 1px solid #8740a5;
 }

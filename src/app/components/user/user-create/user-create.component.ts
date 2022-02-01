@@ -2,6 +2,7 @@ import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user-interface';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-create',
@@ -26,21 +27,17 @@ export class UserCreateComponent implements OnInit {
     
   }
 
-  createUser(): void {
-    this.userService.create(this.user).subscribe((result: any) => {
-      if (result.errorMessage) {
-        this.userService.showMessage(result.errorMessage); 
-        return     
-      }
+  async createUser(): Promise<any> {
+    
+    try {
+      const dataCreated = await this.userService.create(this.user);
+      const response: any = await lastValueFrom(dataCreated);
 
-      if (result.errorBlank) {
-        this.userService.showMessage(result.errorBlank); 
-        return
-      }
-
-      this.userService.showMessage(result.message);
+      this.userService.showMessage(response.message);
       this.router.navigate(['/user'])
-    });
+    } catch (error: any) {
+      this.userService.showMessage(error.error.message);
+    }
   }
 
   cancelCreateUser(): void {

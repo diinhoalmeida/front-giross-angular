@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user-interface'
 import { Component, OnInit } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-delete',
@@ -26,21 +27,38 @@ export class UserDeleteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-    this.userService.readById(id).subscribe(users => {
-      this.user = users;
-    })
+    this.reqFromParams();    
   }
 
-  deleteUser(): void {
-    this.userService.delete(this.user).subscribe(() => {
-      this.userService.showMessage('Usuário Deletado com sucesso');
-      this.router.navigate(['/user']);
-    })
+  async deleteUser(): Promise<any> {
+    try {
+      const dataCreated = await this.userService.delete(this.user)
+      const response: any = await lastValueFrom(dataCreated);
+
+      this.userService.showMessage(response.message);
+      this.router.navigate(['/user'])
+    } catch (error: any) {
+      this.userService.showMessage(error.error.message);
+    }
   }
 
   cancelDeleteuser(): void {
     this.router.navigate(['/user']);
+  }
+
+  async reqFromParams() {
+
+    try {
+      const id = this.route.snapshot.params['id'];
+      const dataReadById = await this.userService.readById(id);
+      const response: any = await lastValueFrom(dataReadById);
+      
+      this.user = response;
+
+    } catch (error: any) {
+      this.userService.showMessage(error.error.message);
+    }
+    
   }
 
 }

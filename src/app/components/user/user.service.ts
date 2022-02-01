@@ -21,27 +21,28 @@ export class UserService {
     })
   } 
 
-  create(user: User): Observable<User> {
+  create(user: User): any {
+    console.log(user);
     return this.http.post<User>(this.baseUrl, user)
   } 
 
-  read(): Observable<User>{
+  read(): any{
     return this.http.get<User>(this.baseUrl)
   }
 
-  readById(id: string): Observable<User>{
+  readById(id: string): any {
     const url = `${this.baseUrl}/${id}`
     console.log(this.http.get<User>(url))
     return this.http.get<User>(url)
   }
 
-  update(user: User): Observable<User> {
+  update(user: User): any {
     console.log(user);
     const url = `${this.baseUrl}/${user.id}`;
     return this.http.put<User>(url, user);
   }
 
-  delete(user: User): Observable<User> {
+  delete(user: User): any {
     const url = `${this.baseUrl}/${user.id}`;
     return this.http.delete<User>(url);
   }
