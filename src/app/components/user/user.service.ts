@@ -16,26 +16,22 @@ export class UserService {
 
   showMessage(msg: Array<string>): void {
     if ( msg instanceof Array) {
-      msg.forEach((msgFinal, index) => {
-        setTimeout(() => {
-          this.snackBar.open(msgFinal, 'X', {
+      this.snackBar.open(msg.join("\n"), 'X', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['success-snackbar']
+        })  
+    } else {
+      this.snackBar.open(msg, 'X', {
             duration: 3000,
             horizontalPosition: 'center',
             verticalPosition: 'top'
           })     
-        }, index * (this.timeOut+500))
-      })
-    } else {
-      this.snackBar.open(msg, 'X', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top'
-      })      
     }
   } 
 
   create(user: User): any {
-    console.log(user);
     return this.http.post<User>(this.baseUrl, user)
   } 
 
