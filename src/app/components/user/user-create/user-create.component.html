@@ -1,41 +1,35 @@
-<mat-card>
-    <mat-card-title>
-        Novo Usuário
-    </mat-card-title>
+<div class="container">
+    <div class="header">
+        <h1>
+            Novo Usuário
+        </h1>
+    </div>
     <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome" required 
-            [(ngModel)]="user.nome" name="nome">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Email" required
-            [(ngModel)]="user.email" name="email">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Telefone" required
-            [(ngModel)]="user.telefone" name="telefone">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Idade" required type="number"
-            [(ngModel)]="user.idade" name="idade">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Qual seu Gênero?" [(ngModel)]="user.gen" name="gen" list="gen" required/>
-            <datalist id="gen">
-                <option>Masculino </option>
-                <option>Feminino</option>
-                <option>Prefiro não dizer</option>
-                <option>Outro (Escreva aqui)</option>
-            </datalist>
-        </mat-form-field>
+        <label for="nome'">Nome</label>
+        <input [(ngModel)]="user.nome" name="nome" type="text" id="nome">
+        <label for="email">Email</label>
+        <input [(ngModel)]="user.email" name="email" type="email" id="email">
+        <label for="phone">Telefone</label>
+        <input [(ngModel)]="user.telefone" name="telefone" type="string" id="phone">
+        <label for="idade">Idade</label>
+        <input [(ngModel)]="user.idade" name="idade" type="number" id="idade">
+        <label for="gen">Gênero</label>
+        <input [(ngModel)]="user.gen" name="gen" type="text" id="gen">
+        <datalist id="gen">
+            <option>Masculino </option>
+            <option>Feminino</option>
+            <option>Prefiro não dizer</option>
+            <option>Outro (Escreva aqui)</option>
+        </datalist>
     </form>
-    <button type="submit" mat-raised-button (click)="createUser()" color="primary">
-        Salvar
-    </button>
-    
-    <button mat-raised-button (click)="cancelCreateUser()">
-        Cancelar
-    </button>
-</mat-card>
+    <div class="btn-footer">
+        <button class="btn-footer-save" type="submit" (click)="createUser()">
+            Salvar
+        </button>
+        <button class="btn-footer-cancel" (click)="cancelCreateUser()">
+            Cancelar
+        </button>
+    </div>
+</div>
 
 

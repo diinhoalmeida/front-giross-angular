@@ -2,6 +2,7 @@ import { UserService } from '../user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user-interface'
 import { Router } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-read',
@@ -16,10 +17,19 @@ export class UserReadComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.read().subscribe((response:any) => {
-      this.users = response
-      console.log(response)
-    })
+    this.readAllData();
+  }
+
+  async readAllData() {
+    try {
+      const dataReadById = await this.userService.read();
+      const response: any = await lastValueFrom(dataReadById);
+      
+      this.users = response;
+
+    } catch (error: any) {
+      this.userService.showMessage(error.error.message);
+    }
   }
 
 }

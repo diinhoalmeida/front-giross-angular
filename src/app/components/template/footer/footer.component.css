@@ -4,9 +4,18 @@
     display: flex;
     justify-content: center;
     height: 70px;
+    align-items: center;
+    background-color: #212121; 
+    width: 100%;
+    color: white;
 }
 
 .footer > span {
     font-size: 1.1rem;
     font-weight: 300;
+    margin: 0 5px;
+}
+
+.footer > p {
+    margin: 0;
 }

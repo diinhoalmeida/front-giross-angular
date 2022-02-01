@@ -2,6 +2,7 @@ import { User } from '../user-interface'
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Component, OnInit } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-update',
@@ -26,25 +27,38 @@ export class UserUpdateComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-    this.userService.readById(id).subscribe(users => {
-      this.user = users;
-    })
+    this.reqFromParams();
   }
 
-  updateUser(): void {
-    this.userService.update(this.user).subscribe((response: any) => {
-      if (response.errorMessage) {
-        this.userService.showMessage(response.errorMessage); 
-        return 
-      }
+  async updateUser(): Promise<void> {
+    try {
+      const dataUpdated = await this.userService.update(this.user);
+      const response: any = await lastValueFrom(dataUpdated);
+
       this.userService.showMessage(response.message);
-      this.router.navigate(['/user']);
-    })
+      this.router.navigate(['/user'])
+    } catch (error: any) {
+      this.userService.showMessage(error.error.message);
+    }
   }
 
   cancelUpdateUser(): void {
     this.router.navigate(['/user']);
+  }
+
+  async reqFromParams() {
+
+    try {
+      const id = this.route.snapshot.params['id'];
+      const dataReadById = await this.userService.readById(id);
+      const response: any = await lastValueFrom(dataReadById);
+      
+      this.user = response;
+
+    } catch (error: any) {
+      this.userService.showMessage(error.error.message);
+    }
+    
   }
 
 }
